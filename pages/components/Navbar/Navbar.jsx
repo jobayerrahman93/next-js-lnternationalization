@@ -1,9 +1,11 @@
 import Link from 'next/Link';
 import { useRouter } from "next/router";
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 const Header = () => {
+    const [languageValue, setLanguageValue] = useState('');
+    console.log(languageValue);
     const router = useRouter();
     return (
         <>
@@ -19,10 +21,10 @@ const Header = () => {
 
                         </Nav>
                         <div className='ms-auto'>
-                            <Form.Select aria-label="Default select example">
+                            <Form.Select onChange={(e) => setLanguageValue(e.target.value)} aria-label="Default select example">
                                 <option>Select Language</option>
-                                <option value="1">English</option>
-                                <option value="2">Bangla</option>
+                                <option value="en">English</option>
+                                <option value="bn">Bangla</option>
 
                             </Form.Select>
                         </div>
