@@ -9,8 +9,8 @@ const Header = () => {
     const { locale } = router;
 
     const onChangeLanguage = (e) => {
-        const locale = e.target.value;
-        router.push('/', '/', { locale })
+        const value = e.target.value;
+        router.push(router.route, router.asPath, { locale: value })
     }
     return (
         <>
@@ -27,7 +27,7 @@ const Header = () => {
                         </Nav>
                         <div className='ms-auto'>
                             <Form.Select defaultValue={locale} onChange={onChangeLanguage} aria-label="Default select example">
-                                <option>Select Language</option>
+                                <option hidden disabled>Select Language</option>
                                 <option value="en">English</option>
                                 <option value="bn">Bangla</option>
 
